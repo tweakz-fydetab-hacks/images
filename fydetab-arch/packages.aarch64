@@ -17,8 +17,8 @@ bash-completion
 sudo
 polkit
 bluez-utils
-linux-fydetab
-linux-fydetab-headers
+#linux-fydetab
+#linux-fydetab-headers
 mesa-panfork-git
 libdrm
 linux-firmware
@@ -37,9 +37,8 @@ fyde-keyring
 fyde-mirrorlist
 dosfstools
 e2fsprogs
-chromium-mpp
-ffmpeg-mpp-git
-neofetch
+# chromium-mpp
+# ffmpeg-mpp-git
 mali-G610-firmware-rkr4
 blueman
 cpupower
@@ -100,8 +99,6 @@ gnome-panel
 gnome-passwordsafe
 # gnome-pie
 gnome-shell-extension-appindicator
-grub
-grub-btrfs
 fydetabduo-post-install
 
 calamares-settings-fydetab

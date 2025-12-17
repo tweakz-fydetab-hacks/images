@@ -4,27 +4,29 @@ from time import strftime, time
 import subprocess
 
 img_version = strftime("%Y-%m-%d")
-edition = "Gnome"
+edition = "Gnome-uboot"
 arch = "aarch64"
 img_name = f"ArchLinux-ARM-FydeTab-Duo-{edition}-{img_version}"
 install_dir = "arch"
-fs = "btrfs"
+fs = "ext4"
 img_type = "image"
 img_backend = "loop"
 has_uefi = True
+use_gpt = True
 
 cmdline = "console=ttyFIQ0,1500000n8 console=tty1 console=both loglevel=7 rw panic=10 init=/sbin/init rootflags=subvol=@ rootfstype=btrfs"
 grubcmdl = "console=ttyFIQ0,1500000n8 console=tty1 console=both rw init=/sbin/init"
 grubdtb = "dtbs/rockchip/rk3588s-fydetab-duo.dtb"
 
 partition_table = lambda img_size, fs: {
-    "UEFI": ["0%", "8M", "8M", "NONE"],
-    "boot": ["9M", "32M", "24M", "fat32"],
-    "primary": ["32M", "100%", str(int(img_size / 1000) - 32) + "M", fs],
+    "FW": ["64s", "65535s", "32M", "NONE"],
+    "ROOTFS": ["65536s", "100%", str(int(img_size / 1000) - 32) + "M", fs],
 }
 
 partition_prefix = lambda config_dir, disk: [
-    ["dd", "if=" + config_dir + "/fydetab-duo_UEFI.img", "of=" + disk, "bs=512"],
+    ["dd", "if=" + config_dir + "/uboot/idblock.bin", "of=" + disk, "bs=512", "seek=64", "conv=notrunc,fdatasync"],
+    ["dd", "if=" + config_dir + "/uboot/uboot.img", "of=" + disk, "bs=512", "seek=16384", "conv=notrunc,fdatasync"],
+    ["dd", "if=" + config_dir + "/uboot/resource.img", "of=" + disk, "bs=512", "seek=24580", "conv=notrunc,fdatasync"],
     ["partprobe", disk],
     ["sgdisk", "-e", disk],
     ["partprobe", disk],
@@ -59,16 +61,15 @@ def main() -> None:
     remove_machine_id()
     fixperms()
     copy_skel_to_users()
+    subprocess.run(["cp", "-f", cfg["config_dir"] + "/uboot/boot.scr.uimg", cfg["install_dir"]+"/boot/"])
+    subprocess.run(["cp", "-f", cfg["config_dir"] + "/uboot/rk3588s-fydetab-duo.dtb", cfg["install_dir"]+"/boot/dtbs/rockchip/"])
     logging.info("Partitioning Fydetab Image")
-    rootfs_size = get_size(cfg["install_dir"]) + 110000
+    rootfs_size = get_size(cfg["install_dir"]) + 1048576 # df size + 1GB
     ldev = next_loop()
     makeimg(rootfs_size, ldev)
     partition(ldev, rootfs_size)
-    os.makedirs(cfg["mnt_dir"] + "/boot/efi", exist_ok=True)
-    subprocess.run("mount " + ldev + "p2 " + cfg["mnt_dir"] + "/boot/efi", shell=True)
     copyfiles(cfg["install_dir"], cfg["mnt_dir"], retainperms=True)
     create_fstab(ldev)
-    grub_install()
     unmount(ldev)
     compressimage(cfg["img_name"])
     cleanup()
