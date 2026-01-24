@@ -34,6 +34,13 @@ SigLevel = Never
 LocalFileSigLevel = Optional
 # RemoteFileSigLevel = Required
 
+# Local package cache - for locally built packages (highest priority)
+# This repo is populated by build-image.sh before image creation
+# To use: repo-add local.db.tar.gz *.pkg.tar.zst in the local-pkgs directory
+[fydetab-local]
+SigLevel = Optional TrustAll
+Server = file://__LOCAL_PKGS_DIR__
+
 [fyde]
 Server = https://deb-mirror.fydeos.com/pacman/repo/$repo/$arch
 

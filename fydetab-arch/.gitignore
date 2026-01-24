@@ -3,3 +3,7 @@
 **/work
 .img.xz
 .log
+# Local package cache (keep README, ignore packages)
+local-pkgs/*.pkg.tar.zst
+local-pkgs/*.db*
+local-pkgs/*.files*

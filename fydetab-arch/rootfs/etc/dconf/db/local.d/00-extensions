@@ -1,0 +1,17 @@
+# GNOME Shell Extensions Configuration
+
+[org/gnome/shell]
+enabled-extensions=['ddterm@amezin.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'caffeine@patapon.info']
+
+[com/github/amezin/ddterm]
+ddterm-toggle-hotkey=['<Super>t']
+window-maximize=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+background-opacity=0.80000000000000004
+dash-max-icon-size=48
+disable-overview-on-startup=true
+dock-position='BOTTOM'
+height-fraction=0.90000000000000002
+preferred-monitor=-2
+preferred-monitor-by-connector='DSI-1'

@@ -13,4 +13,5 @@ audio:x:995:arch
 users:x:985:arch
 nopasswdlogin:x:966:arch
 autologin:x:967:arch
+informant:x:968:arch
 arch:x:1001:
