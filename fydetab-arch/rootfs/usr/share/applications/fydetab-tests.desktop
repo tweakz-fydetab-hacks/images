@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=FydeTab Tests
+Comment=Run FydeTab Duo hardware and system diagnostic tests
+Exec=gnome-terminal -- /home/arch/tests/run-all-tests.sh
+Icon=utilities-system-monitor
+Terminal=false
+Categories=System;Utility;
+Keywords=test;diagnostic;hardware;fydetab;

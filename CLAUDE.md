@@ -16,7 +16,7 @@ sudo pacman -S --needed python parted btrfs-progs git wget \
 
 **Build image:**
 ```bash
-cd ~/builds/fydetab-images
+cd ~/repos/tweakz-fydetab-hacks/tweakz-fydetab-hacks/images
 sudo ./fydetab-arch/profiledef -c fydetab-arch -w ./work -o ./out
 ```
 
@@ -51,7 +51,7 @@ xzcat out/*.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
 
 Custom kernel and device packages are built from:
 ```
-~/builds/tweakz-fydetab-hacks/pkgbuilds/linux-fydetab-itztweak/
+~/repos/tweakz-fydetab-hacks/tweakz-fydetab-hacks/pkgbuilds/linux-fydetab-itztweak/
 ```
 
 The image pulls `linux-fydetab-itztweak` and other custom packages from the Fyde repository configured in `pacman.conf.aarch64`.
