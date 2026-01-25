@@ -51,10 +51,10 @@ xzcat out/*.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
 
 Custom kernel and device packages are built from:
 ```
-~/builds/pkgbuilds/
+~/builds/tweakz-fydetab-hacks/pkgbuilds/linux-fydetab-itztweak/
 ```
 
-The image pulls `linux-fydetab` and other custom packages from the Fyde repository configured in `pacman.conf.aarch64`.
+The image pulls `linux-fydetab-itztweak` and other custom packages from the Fyde repository configured in `pacman.conf.aarch64`.
 
 ## Build Space Requirements
 

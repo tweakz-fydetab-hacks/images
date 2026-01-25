@@ -19,8 +19,8 @@ bash-completion
 sudo
 polkit
 bluez-utils
-linux-fydetab
-linux-fydetab-headers
+linux-fydetab-itztweak
+linux-fydetab-itztweak-headers
 # mainline mesa has panthor support for Mali G610 (was: mesa-panfork-git)
 mesa
 libdrm
@@ -52,6 +52,7 @@ lshw
 expect
 ap6275p-firmware
 gnu-netcat
+grim
 
 # ==============
 # SHELL/TERMINAL
@@ -62,11 +63,13 @@ tealdeer
 vte3
 
 # =================
-# ANDROID
+# AUR HELPER
 # =================
 paru
-informant
-waydroid
+
+# NOTE: Waydroid packages removed from base image for faster builds.
+# Install after boot with: sudo pacman -U ~/pkgs/*.pkg.tar.zst
+# Packages: waydroid, waydroid-panthor-images, waydroid-panthor-config
 
 # ===
 # GUI
