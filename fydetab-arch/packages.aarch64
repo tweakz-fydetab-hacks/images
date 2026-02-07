@@ -66,7 +66,7 @@ vte3
 # =================
 # AUR HELPER
 # =================
-paru-bin
+#paru-bin  # AUR package - install manually post-boot
 
 # NOTE: Waydroid packages removed from base image for faster builds.
 # Install after boot with: sudo pacman -U ~/pkgs/*.pkg.tar.zst
@@ -115,8 +115,8 @@ gnome-notes
 seahorse
 vlc
 firefox
-vscodium-bin
-vscodium-marketplace
+#vscodium-bin  # AUR package - install manually post-boot
+#vscodium-marketplace  # AUR package - install manually post-boot
 noto-fonts-cjk
 gnome-applets
 # gnome-firmware
