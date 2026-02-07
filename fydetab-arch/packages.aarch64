@@ -53,6 +53,7 @@ expect
 ap6275p-firmware
 gnu-netcat
 grim
+wireguard-tools
 
 # ==============
 # SHELL/TERMINAL
@@ -65,7 +66,7 @@ vte3
 # =================
 # AUR HELPER
 # =================
-paru
+#paru-bin  # AUR package - install manually post-boot
 
 # NOTE: Waydroid packages removed from base image for faster builds.
 # Install after boot with: sudo pacman -U ~/pkgs/*.pkg.tar.zst
@@ -113,8 +114,9 @@ gnome-notes
 #cheese  # removed from repos
 seahorse
 vlc
-vscodium
-vscodium-marketplace
+firefox
+#vscodium-bin  # AUR package - install manually post-boot
+#vscodium-marketplace  # AUR package - install manually post-boot
 noto-fonts-cjk
 gnome-applets
 # gnome-firmware
