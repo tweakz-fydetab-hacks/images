@@ -49,7 +49,6 @@ perms = {
     "/usr/lib/systemd": ["0", "0", "755"],
     "/usr/local": ["0", "0", "755"],
     "/usr/local/bin": ["0", "0", "755"],
-    "/usr/local/bin/waydroid-test": ["0", "0", "755"],
     "/usr/share": ["0", "0", "755"],
     "/usr/share/applications": ["0", "0", "755"],
     "/usr/share/gnome-shell": ["0", "0", "755"],

@@ -39,7 +39,7 @@ LocalFileSigLevel = Optional
 # To use: repo-add local.db.tar.gz *.pkg.tar.zst in the local-pkgs directory
 [fydetab-local]
 SigLevel = Optional TrustAll
-Server = file://__LOCAL_PKGS_DIR__
+Server = file:///home/itztweak/repos/tweakz-fydetab-hacks/tweakz-fydetab-hacks/images/fydetab-arch/local-pkgs
 
 [fyde]
 Server = https://deb-mirror.fydeos.com/pacman/repo/$repo/$arch

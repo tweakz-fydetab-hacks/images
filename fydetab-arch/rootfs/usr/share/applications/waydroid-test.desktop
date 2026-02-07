@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Waydroid Test
-Comment=Run Waydroid diagnostics and test Android container
-Exec=gnome-terminal -- /usr/local/bin/waydroid-test
-Icon=utilities-terminal
-Terminal=false
-Categories=System;Utility;
-Keywords=waydroid;android;test;diagnostic;
